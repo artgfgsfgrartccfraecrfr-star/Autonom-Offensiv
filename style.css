@@ -1,315 +1,500 @@
 /* =========================================
-AUTONOM OFFENSIV
-MAIN STYLESHEET
-========================================= */
+   AUTONOM OFFENSIV
+   V2 // MAIN STYLESHEET
+   ========================================= */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  }
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 html,
 body {
-width: 100%;
-min-height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-min-height: 100vh;
+    min-height: 100vh;
 
-```
-color: #ffffff;
-font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #202020 0%,
+            #151515 35%,
+            #0c0c0c 70%,
+            #050505 100%
+        );
 
-display: flex;
-justify-content: center;
-align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 
-text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-position: relative;
-overflow: hidden;
+    text-align: center;
 
-/*
-   DARK CONCRETE BASE
-*/
-background:
-    radial-gradient(
-        circle at 20% 20%,
-        rgba(255, 255, 255, 0.035),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 80% 75%,
-        rgba(255, 255, 255, 0.025),
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #1a1a1a 0%,
-        #111111 35%,
-        #181818 55%,
-        #0b0b0b 100%
-    );
-```
-
+    position: relative;
+    overflow: hidden;
 }
 
+
 /* =========================================
-CONCRETE TEXTURE
-========================================= */
+   CONCRETE TEXTURE
+   ========================================= */
 
 body::before {
-content: "";
+    content: "";
 
-```
-position: fixed;
-inset: 0;
+    position: fixed;
+    inset: -20px;
 
-pointer-events: none;
+    pointer-events: none;
 
-/*
-   Multiple layers create subtle
-   concrete-like variation.
-*/
-background:
-    repeating-linear-gradient(
-        115deg,
-        rgba(255, 255, 255, 0.018) 0px,
-        rgba(255, 255, 255, 0.018) 1px,
-        transparent 1px,
-        transparent 7px
-    ),
-    repeating-linear-gradient(
-        65deg,
-        rgba(0, 0, 0, 0.025) 0px,
-        rgba(0, 0, 0, 0.025) 2px,
-        transparent 2px,
-        transparent 11px
-    ),
-    radial-gradient(
-        ellipse at 30% 60%,
-        rgba(255, 255, 255, 0.025),
-        transparent 45%
-    ),
-    radial-gradient(
-        ellipse at 75% 25%,
-        rgba(0, 0, 0, 0.18),
-        transparent 50%
-    );
+    background:
+        radial-gradient(
+            ellipse at 15% 25%,
+            rgba(255,255,255,0.035),
+            transparent 25%
+        ),
 
-opacity: 0.8;
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(255,255,255,0.025),
+            transparent 30%
+        ),
 
-z-index: 0;
-```
+        radial-gradient(
+            ellipse at 30% 80%,
+            rgba(0,0,0,0.25),
+            transparent 35%
+        ),
 
+        radial-gradient(
+            ellipse at 85% 75%,
+            rgba(0,0,0,0.3),
+            transparent 30%
+        ),
+
+        repeating-linear-gradient(
+            117deg,
+            rgba(255,255,255,0.014) 0px,
+            rgba(255,255,255,0.014) 1px,
+            transparent 1px,
+            transparent 9px
+        ),
+
+        repeating-linear-gradient(
+            63deg,
+            rgba(0,0,0,0.025) 0px,
+            rgba(0,0,0,0.025) 2px,
+            transparent 2px,
+            transparent 13px
+        );
+
+    opacity: 0.95;
+
+    z-index: 0;
 }
 
+
 /* =========================================
-CRT SCANLINES
-========================================= */
+   CRT SCANLINES
+   ========================================= */
 
 body::after {
-content: "";
+    content: "";
 
-```
-position: fixed;
-inset: 0;
+    position: fixed;
+    inset: 0;
 
-pointer-events: none;
+    pointer-events: none;
 
-background:
-    repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.018) 0px,
-        rgba(255, 255, 255, 0.018) 1px,
-        transparent 1px,
-        transparent 4px
-    );
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.018) 0px,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
 
-opacity: 0.45;
+    opacity: 0.5;
 
-mix-blend-mode: screen;
+    mix-blend-mode: screen;
 
-z-index: 10;
-```
-
+    z-index: 20;
 }
 
+
 /* =========================================
-MAIN CONTENT
-========================================= */
+   MAIN CONTAINER
+   ========================================= */
 
 .container {
-width: 100%;
-max-width: 900px;
+    width: 100%;
+    max-width: 900px;
 
-```
-padding: 40px 20px;
+    padding: 50px 25px;
 
-position: relative;
-z-index: 5;
-```
+    position: relative;
 
+    z-index: 5;
 }
 
+
 /* =========================================
-LOGO
-========================================= */
+   LOGO
+   ========================================= */
+
+.logo-wrap {
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+}
 
 .logo {
-width: 180px;
-max-width: 60vw;
-height: auto;
+    width: 180px;
+    max-width: 60vw;
+    height: auto;
 
-```
-margin-bottom: 35px;
+    display: block;
 
-filter:
-    grayscale(100%)
-    contrast(110%);
+    filter:
+        grayscale(100%)
+        contrast(115%)
+        brightness(105%);
 
-animation: subtleFlicker 7s infinite;
-```
-
+    animation: subtleFlicker 8s infinite;
 }
 
+
 /* =========================================
-TITLE
-========================================= */
+   TITLE
+   ========================================= */
+
+.title-line {
+    width: 140px;
+    height: 1px;
+
+    margin: 0 auto 20px;
+
+    background: rgba(255,255,255,0.22);
+}
 
 h1 {
-font-size: 42px;
-font-weight: 700;
+    font-size: 42px;
+    font-weight: 700;
 
-```
-letter-spacing: 8px;
+    letter-spacing: 9px;
 
-margin-bottom: 35px;
+    margin-bottom: 20px;
 
-text-shadow:
-    0 0 8px rgba(255, 255, 255, 0.08);
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.08);
 
-animation: subtleFlicker 9s infinite;
-```
-
+    animation: subtleFlicker 10s infinite;
 }
 
+
 /* =========================================
-NAVIGATION
-========================================= */
+   NAVIGATION
+   ========================================= */
 
 nav {
-display: flex;
+    display: flex;
 
-```
-justify-content: center;
+    justify-content: center;
 
-gap: 40px;
-```
+    align-items: center;
 
+    gap: 42px;
+
+    margin-top: 30px;
 }
 
 nav a {
-color: #ffffff;
+    color: #ffffff;
 
-```
-text-decoration: none;
+    text-decoration: none;
 
-font-size: 14px;
+    font-size: 13px;
 
-letter-spacing: 3px;
+    font-weight: 600;
 
-position: relative;
+    letter-spacing: 3px;
 
-transition:
-    opacity 0.2s ease,
-    letter-spacing 0.2s ease;
-```
+    position: relative;
 
+    transition:
+        opacity 0.2s ease,
+        letter-spacing 0.2s ease;
+}
+
+nav a::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #ffffff;
+
+    transform: translateX(-50%);
+
+    transition: width 0.25s ease;
 }
 
 nav a:hover {
-opacity: 0.55;
+    opacity: 0.65;
 
-```
-letter-spacing: 4px;
-```
-
+    letter-spacing: 4px;
 }
 
-/* =========================================
-SIGNAL
-========================================= */
-
-.signal {
-margin-top: 60px;
-
-```
-color: #777777;
-
-font-size: 10px;
-
-letter-spacing: 4px;
-
-opacity: 0.55;
-```
-
+nav a:hover::before {
+    width: 100%;
 }
 
+
 /* =========================================
-SUBTLE CRT FLICKER
-========================================= */
+   MOTTO
+   ========================================= */
+
+.motto {
+    margin-top: 65px;
+
+    color: #aaaaaa;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+
+    animation: mottoFlicker 12s infinite;
+}
+
+
+/* =========================================
+   SCREEN INFORMATION
+   ========================================= */
+
+.screen-info {
+    position: fixed;
+
+    color: rgba(255,255,255,0.35);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+    z-index: 6;
+
+    user-select: none;
+}
+
+.top-left {
+    top: 25px;
+    left: 30px;
+}
+
+.top-right {
+    top: 25px;
+    right: 30px;
+}
+
+.bottom-left {
+    bottom: 25px;
+    left: 30px;
+}
+
+.bottom-right {
+    bottom: 25px;
+    right: 30px;
+}
+
+
+/* =========================================
+   HORIZONTAL SIGNAL BAR
+   ========================================= */
+
+.scan-bar {
+    position: fixed;
+
+    left: 0;
+    top: 43%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 20%,
+            rgba(255,255,255,0.08) 50%,
+            transparent 80%,
+            transparent 100%
+        );
+
+    opacity: 0.25;
+
+    pointer-events: none;
+
+    z-index: 4;
+
+    animation: signalMove 9s infinite;
+}
+
+
+/* =========================================
+   FLICKER
+   ========================================= */
 
 @keyframes subtleFlicker {
 
-```
-0%,
-96%,
-100% {
-    opacity: 1;
+    0%,
+    96%,
+    100% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: 0.96;
+    }
+
+    98% {
+        opacity: 0.9;
+    }
+
+    99% {
+        opacity: 0.98;
+    }
 }
 
-97% {
-    opacity: 0.96;
+@keyframes mottoFlicker {
+
+    0%,
+    92%,
+    100% {
+        opacity: 0.65;
+    }
+
+    94% {
+        opacity: 0.45;
+    }
+
+    95% {
+        opacity: 0.7;
+    }
 }
 
-98% {
-    opacity: 0.88;
+@keyframes signalMove {
+
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 0.25;
+    }
+
+    52% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
 
-99% {
-    opacity: 0.98;
-}
-```
-
-}
 
 /* =========================================
-MOBILE
-========================================= */
+   MOBILE
+   ========================================= */
 
 @media (max-width: 600px) {
 
-```
-h1 {
-    font-size: 28px;
-    letter-spacing: 5px;
-}
+    .container {
+        padding: 40px 20px;
+    }
 
-nav {
-    gap: 20px;
-}
+    .logo {
+        width: 150px;
+    }
 
-nav a {
-    font-size: 12px;
-    letter-spacing: 2px;
-}
+    h1 {
+        font-size: 27px;
+        letter-spacing: 5px;
+    }
 
-.logo {
-    width: 150px;
-}
-```
+    .title-line {
+        width: 100px;
+    }
 
+    nav {
+        gap: 20px;
+
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .motto {
+        margin-top: 50px;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .screen-info {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+    .top-left {
+        top: 15px;
+        left: 15px;
+    }
+
+    .top-right {
+        top: 15px;
+        right: 15px;
+    }
+
+    .bottom-left {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .bottom-right {
+        bottom: 15px;
+        right: 15px;
+    }
 }
