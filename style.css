@@ -1,260 +1,315 @@
 /* =========================================
-   AUTONOM OFFENSIV
-   Main stylesheet
-   ========================================= */
+AUTONOM OFFENSIV
+MAIN STYLESHEET
+========================================= */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
 
 html,
 body {
-    width: 100%;
-    min-height: 100%;
+width: 100%;
+min-height: 100%;
 }
 
 body {
-    background:
-        radial-gradient(
-            ellipse at center,
-            #181818 0%,
-            #0d0d0d 45%,
-            #050505 100%
-        );
+min-height: 100vh;
 
-    color: #ffffff;
+```
+color: #ffffff;
+font-family: Arial, Helvetica, sans-serif;
 
-    font-family: Arial, Helvetica, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
 
-    min-height: 100vh;
+text-align: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+position: relative;
+overflow: hidden;
 
-    text-align: center;
+/*
+   DARK CONCRETE BASE
+*/
+background:
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.035),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 80% 75%,
+        rgba(255, 255, 255, 0.025),
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #1a1a1a 0%,
+        #111111 35%,
+        #181818 55%,
+        #0b0b0b 100%
+    );
+```
 
-    position: relative;
-    overflow: hidden;
 }
 
-
 /* =========================================
-   CONCRETE / ATMOSPHERE
-   ========================================= */
+CONCRETE TEXTURE
+========================================= */
 
 body::before {
-    content: "";
+content: "";
 
-    position: fixed;
-    inset: 0;
+```
+position: fixed;
+inset: 0;
 
-    pointer-events: none;
+pointer-events: none;
 
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(255, 255, 255, 0.035),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.025),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            transparent 30%,
-            rgba(0, 0, 0, 0.45) 100%
-        );
+/*
+   Multiple layers create subtle
+   concrete-like variation.
+*/
+background:
+    repeating-linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0.018) 0px,
+        rgba(255, 255, 255, 0.018) 1px,
+        transparent 1px,
+        transparent 7px
+    ),
+    repeating-linear-gradient(
+        65deg,
+        rgba(0, 0, 0, 0.025) 0px,
+        rgba(0, 0, 0, 0.025) 2px,
+        transparent 2px,
+        transparent 11px
+    ),
+    radial-gradient(
+        ellipse at 30% 60%,
+        rgba(255, 255, 255, 0.025),
+        transparent 45%
+    ),
+    radial-gradient(
+        ellipse at 75% 25%,
+        rgba(0, 0, 0, 0.18),
+        transparent 50%
+    );
 
-    opacity: 0.9;
+opacity: 0.8;
+
+z-index: 0;
+```
+
 }
 
-
 /* =========================================
-   CRT SCANLINES
-   ========================================= */
+CRT SCANLINES
+========================================= */
 
 body::after {
-    content: "";
+content: "";
 
-    position: fixed;
-    inset: 0;
+```
+position: fixed;
+inset: 0;
 
-    pointer-events: none;
+pointer-events: none;
 
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.025) 0px,
-            rgba(255, 255, 255, 0.025) 1px,
-            transparent 1px,
-            transparent 4px
-        );
+background:
+    repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.018) 0px,
+        rgba(255, 255, 255, 0.018) 1px,
+        transparent 1px,
+        transparent 4px
+    );
 
-    opacity: 0.35;
+opacity: 0.45;
 
-    mix-blend-mode: screen;
+mix-blend-mode: screen;
+
+z-index: 10;
+```
+
 }
 
-
 /* =========================================
-   MAIN CONTENT
-   ========================================= */
+MAIN CONTENT
+========================================= */
 
 .container {
-    width: 100%;
-    max-width: 900px;
+width: 100%;
+max-width: 900px;
 
-    padding: 40px 20px;
+```
+padding: 40px 20px;
 
-    position: relative;
-    z-index: 2;
+position: relative;
+z-index: 5;
+```
+
 }
 
-
 /* =========================================
-   LOGO
-   ========================================= */
+LOGO
+========================================= */
 
 .logo {
-    width: 180px;
-    max-width: 60vw;
-    height: auto;
+width: 180px;
+max-width: 60vw;
+height: auto;
 
-    margin-bottom: 35px;
+```
+margin-bottom: 35px;
 
-    filter:
-        grayscale(100%)
-        contrast(110%);
+filter:
+    grayscale(100%)
+    contrast(110%);
 
-    animation: subtleFlicker 7s infinite;
+animation: subtleFlicker 7s infinite;
+```
+
 }
 
-
 /* =========================================
-   TITLE
-   ========================================= */
+TITLE
+========================================= */
 
 h1 {
-    font-size: 42px;
-    font-weight: 700;
+font-size: 42px;
+font-weight: 700;
 
-    letter-spacing: 8px;
+```
+letter-spacing: 8px;
 
-    margin-bottom: 35px;
+margin-bottom: 35px;
 
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.08);
+text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.08);
 
-    animation: subtleFlicker 9s infinite;
+animation: subtleFlicker 9s infinite;
+```
+
 }
 
-
 /* =========================================
-   NAVIGATION
-   ========================================= */
+NAVIGATION
+========================================= */
 
 nav {
-    display: flex;
+display: flex;
 
-    justify-content: center;
+```
+justify-content: center;
 
-    gap: 40px;
+gap: 40px;
+```
+
 }
 
 nav a {
-    color: #ffffff;
+color: #ffffff;
 
-    text-decoration: none;
+```
+text-decoration: none;
 
-    font-size: 14px;
+font-size: 14px;
 
-    letter-spacing: 3px;
+letter-spacing: 3px;
 
-    position: relative;
+position: relative;
 
-    transition:
-        opacity 0.2s ease,
-        letter-spacing 0.2s ease;
+transition:
+    opacity 0.2s ease,
+    letter-spacing 0.2s ease;
+```
+
 }
 
 nav a:hover {
-    opacity: 0.55;
+opacity: 0.55;
 
-    letter-spacing: 4px;
+```
+letter-spacing: 4px;
+```
+
 }
 
-
 /* =========================================
-   SIGNAL TEXT
-   ========================================= */
+SIGNAL
+========================================= */
 
 .signal {
-    margin-top: 60px;
+margin-top: 60px;
 
-    color: #777777;
+```
+color: #777777;
 
-    font-size: 10px;
+font-size: 10px;
 
-    letter-spacing: 4px;
+letter-spacing: 4px;
 
-    opacity: 0.55;
+opacity: 0.55;
+```
+
 }
 
-
 /* =========================================
-   SUBTLE CRT FLICKER
-   ========================================= */
+SUBTLE CRT FLICKER
+========================================= */
 
 @keyframes subtleFlicker {
 
-    0%,
-    96%,
-    100% {
-        opacity: 1;
-    }
-
-    97% {
-        opacity: 0.96;
-    }
-
-    98% {
-        opacity: 0.88;
-    }
-
-    99% {
-        opacity: 0.98;
-    }
+```
+0%,
+96%,
+100% {
+    opacity: 1;
 }
 
+97% {
+    opacity: 0.96;
+}
+
+98% {
+    opacity: 0.88;
+}
+
+99% {
+    opacity: 0.98;
+}
+```
+
+}
 
 /* =========================================
-   MOBILE
-   ========================================= */
+MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
-    h1 {
-        font-size: 28px;
+```
+h1 {
+    font-size: 28px;
+    letter-spacing: 5px;
+}
 
-        letter-spacing: 5px;
-    }
+nav {
+    gap: 20px;
+}
 
-    nav {
-        gap: 20px;
-    }
+nav a {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
 
-    nav a {
-        font-size: 12px;
+.logo {
+    width: 150px;
+}
+```
 
-        letter-spacing: 2px;
-    }
-
-    .logo {
-        width: 150px;
-    }
 }
