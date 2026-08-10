@@ -1,8 +1,3 @@
-/* =========================================
-   AUTONOM OFFENSIV
-   V2 // MAIN STYLESHEET
-   ========================================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,17 +13,12 @@ body {
 body {
     min-height: 100vh;
 
-    color: #ffffff;
-    background:
-        radial-gradient(
-            ellipse at center,
-            #202020 0%,
-            #151515 35%,
-            #0c0c0c 70%,
-            #050505 100%
-        );
+    color: #eeeeee;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     display: flex;
     justify-content: center;
@@ -38,70 +28,82 @@ body {
 
     position: relative;
     overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 45% 45%,
+            #252525 0%,
+            #191919 30%,
+            #101010 65%,
+            #080808 100%
+        );
 }
 
 
 /* =========================================
-   CONCRETE TEXTURE
+   CONCRETE
    ========================================= */
 
 body::before {
     content: "";
 
     position: fixed;
-    inset: -20px;
+    inset: -30px;
 
     pointer-events: none;
 
     background:
+
+        /* large concrete stains */
         radial-gradient(
-            ellipse at 15% 25%,
+            ellipse at 15% 20%,
             rgba(255,255,255,0.035),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 30%,
+            rgba(255,255,255,0.025),
             transparent 25%
         ),
 
         radial-gradient(
-            ellipse at 80% 20%,
-            rgba(255,255,255,0.025),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            ellipse at 30% 80%,
-            rgba(0,0,0,0.25),
+            ellipse at 25% 80%,
+            rgba(0,0,0,0.3),
             transparent 35%
         ),
 
         radial-gradient(
-            ellipse at 85% 75%,
-            rgba(0,0,0,0.3),
+            ellipse at 85% 80%,
+            rgba(0,0,0,0.35),
             transparent 30%
         ),
 
+        /* rough surface */
         repeating-linear-gradient(
-            117deg,
-            rgba(255,255,255,0.014) 0px,
-            rgba(255,255,255,0.014) 1px,
-            transparent 1px,
-            transparent 9px
+            103deg,
+            transparent 0px,
+            rgba(255,255,255,0.012) 1px,
+            transparent 3px,
+            transparent 12px
         ),
 
         repeating-linear-gradient(
-            63deg,
-            rgba(0,0,0,0.025) 0px,
+            77deg,
+            transparent 0px,
             rgba(0,0,0,0.025) 2px,
-            transparent 2px,
-            transparent 13px
+            transparent 4px,
+            transparent 15px
         );
 
-    opacity: 0.95;
+    opacity: 1;
 
     z-index: 0;
 }
 
 
 /* =========================================
-   CRT SCANLINES
+   CRT
    ========================================= */
 
 body::after {
@@ -118,26 +120,24 @@ body::after {
             rgba(255,255,255,0.018) 0px,
             rgba(255,255,255,0.018) 1px,
             transparent 1px,
-            transparent 4px
+            transparent 5px
         );
 
-    opacity: 0.5;
+    opacity: 0.35;
 
-    mix-blend-mode: screen;
-
-    z-index: 20;
+    z-index: 10;
 }
 
 
 /* =========================================
-   MAIN CONTAINER
+   MAIN
    ========================================= */
 
 .container {
     width: 100%;
     max-width: 900px;
 
-    padding: 50px 25px;
+    padding: 40px 20px;
 
     position: relative;
 
@@ -149,27 +149,19 @@ body::after {
    LOGO
    ========================================= */
 
-.logo-wrap {
-    position: relative;
-
-    display: inline-block;
-
-    margin-bottom: 25px;
-}
-
 .logo {
     width: 180px;
     max-width: 60vw;
+
     height: auto;
 
-    display: block;
+    margin-bottom: 30px;
 
     filter:
         grayscale(100%)
-        contrast(115%)
-        brightness(105%);
+        contrast(120%);
 
-    animation: subtleFlicker 8s infinite;
+    animation: flicker 11s infinite;
 }
 
 
@@ -177,27 +169,36 @@ body::after {
    TITLE
    ========================================= */
 
-.title-line {
-    width: 140px;
-    height: 1px;
-
-    margin: 0 auto 20px;
-
-    background: rgba(255,255,255,0.22);
-}
-
 h1 {
-    font-size: 42px;
+    color: #f2f2f2;
+
+    font-size: 40px;
+
     font-weight: 700;
 
-    letter-spacing: 9px;
+    letter-spacing: 8px;
 
-    margin-bottom: 20px;
+    line-height: 1.1;
 
     text-shadow:
-        0 0 8px rgba(255,255,255,0.08);
+        0 1px 0 rgba(255,255,255,0.08);
 
-    animation: subtleFlicker 10s infinite;
+    animation: flicker 13s infinite;
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.divider {
+    width: 110px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,0.3);
+
+    margin: 28px auto 25px;
 }
 
 
@@ -210,57 +211,24 @@ nav {
 
     justify-content: center;
 
-    align-items: center;
-
-    gap: 42px;
-
-    margin-top: 30px;
+    gap: 38px;
 }
 
 nav a {
-    color: #ffffff;
+    color: #eeeeee;
 
     text-decoration: none;
 
     font-size: 13px;
 
-    font-weight: 600;
-
     letter-spacing: 3px;
 
-    position: relative;
-
     transition:
-        opacity 0.2s ease,
-        letter-spacing 0.2s ease;
-}
-
-nav a::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    bottom: -8px;
-
-    width: 0;
-    height: 1px;
-
-    background: #ffffff;
-
-    transform: translateX(-50%);
-
-    transition: width 0.25s ease;
+        opacity 0.2s ease;
 }
 
 nav a:hover {
-    opacity: 0.65;
-
-    letter-spacing: 4px;
-}
-
-nav a:hover::before {
-    width: 100%;
+    opacity: 0.45;
 }
 
 
@@ -269,104 +237,25 @@ nav a:hover::before {
    ========================================= */
 
 .motto {
-    margin-top: 65px;
+    margin-top: 55px;
 
-    color: #aaaaaa;
+    color: #888888;
 
     font-size: 10px;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
     text-transform: uppercase;
 
     opacity: 0.65;
-
-    animation: mottoFlicker 12s infinite;
 }
 
 
 /* =========================================
-   SCREEN INFORMATION
+   SUBTLE ANALOG FLICKER
    ========================================= */
 
-.screen-info {
-    position: fixed;
-
-    color: rgba(255,255,255,0.35);
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
-
-    z-index: 6;
-
-    user-select: none;
-}
-
-.top-left {
-    top: 25px;
-    left: 30px;
-}
-
-.top-right {
-    top: 25px;
-    right: 30px;
-}
-
-.bottom-left {
-    bottom: 25px;
-    left: 30px;
-}
-
-.bottom-right {
-    bottom: 25px;
-    right: 30px;
-}
-
-
-/* =========================================
-   HORIZONTAL SIGNAL BAR
-   ========================================= */
-
-.scan-bar {
-    position: fixed;
-
-    left: 0;
-    top: 43%;
-
-    width: 100%;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            transparent 20%,
-            rgba(255,255,255,0.08) 50%,
-            transparent 80%,
-            transparent 100%
-        );
-
-    opacity: 0.25;
-
-    pointer-events: none;
-
-    z-index: 4;
-
-    animation: signalMove 9s infinite;
-}
-
-
-/* =========================================
-   FLICKER
-   ========================================= */
-
-@keyframes subtleFlicker {
+@keyframes flicker {
 
     0%,
     96%,
@@ -379,53 +268,11 @@ nav a:hover::before {
     }
 
     98% {
-        opacity: 0.9;
+        opacity: 0.91;
     }
 
     99% {
         opacity: 0.98;
-    }
-}
-
-@keyframes mottoFlicker {
-
-    0%,
-    92%,
-    100% {
-        opacity: 0.65;
-    }
-
-    94% {
-        opacity: 0.45;
-    }
-
-    95% {
-        opacity: 0.7;
-    }
-}
-
-@keyframes signalMove {
-
-    0% {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
-
-    45% {
-        opacity: 0;
-    }
-
-    48% {
-        opacity: 0.25;
-    }
-
-    52% {
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
     }
 }
 
@@ -437,20 +284,23 @@ nav a:hover::before {
 @media (max-width: 600px) {
 
     .container {
-        padding: 40px 20px;
+        padding: 35px 20px;
     }
 
     .logo {
-        width: 150px;
+        width: 145px;
     }
 
     h1 {
         font-size: 27px;
+
         letter-spacing: 5px;
     }
 
-    .title-line {
-        width: 100px;
+    .divider {
+        width: 80px;
+
+        margin: 23px auto;
     }
 
     nav {
@@ -461,40 +311,15 @@ nav a:hover::before {
 
     nav a {
         font-size: 11px;
+
         letter-spacing: 2px;
     }
 
     .motto {
-        margin-top: 50px;
+        margin-top: 45px;
 
         font-size: 8px;
 
         letter-spacing: 3px;
-    }
-
-    .screen-info {
-        font-size: 7px;
-
-        letter-spacing: 2px;
-    }
-
-    .top-left {
-        top: 15px;
-        left: 15px;
-    }
-
-    .top-right {
-        top: 15px;
-        right: 15px;
-    }
-
-    .bottom-left {
-        bottom: 15px;
-        left: 15px;
-    }
-
-    .bottom-right {
-        bottom: 15px;
-        right: 15px;
     }
 }
