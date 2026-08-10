@@ -1,3 +1,8 @@
+/* =========================================
+   AUTONOM OFFENSIV
+   V3 // CONCRETE + CRT
+   ========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,81 +34,54 @@ body {
     position: relative;
     overflow: hidden;
 
+    /* =====================================
+       REAL CONCRETE TEXTURE
+       ===================================== */
+
     background:
-        radial-gradient(
-            ellipse at 45% 45%,
-            #252525 0%,
-            #191919 30%,
-            #101010 65%,
-            #080808 100%
-        );
+        linear-gradient(
+            rgba(5, 5, 5, 0.72),
+            rgba(5, 5, 5, 0.72)
+        ),
+        url("concrete.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
 /* =========================================
-   CONCRETE
+   DARK VIGNETTE
+   Makes the edges darker so the center
+   remains the visual focus.
    ========================================= */
 
 body::before {
     content: "";
 
     position: fixed;
-    inset: -30px;
+    inset: 0;
 
     pointer-events: none;
 
     background:
-
-        /* large concrete stains */
         radial-gradient(
-            ellipse at 15% 20%,
-            rgba(255,255,255,0.035),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            ellipse at 80% 30%,
-            rgba(255,255,255,0.025),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            ellipse at 25% 80%,
-            rgba(0,0,0,0.3),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            ellipse at 85% 80%,
-            rgba(0,0,0,0.35),
-            transparent 30%
-        ),
-
-        /* rough surface */
-        repeating-linear-gradient(
-            103deg,
-            transparent 0px,
-            rgba(255,255,255,0.012) 1px,
-            transparent 3px,
-            transparent 12px
-        ),
-
-        repeating-linear-gradient(
-            77deg,
-            transparent 0px,
-            rgba(0,0,0,0.025) 2px,
-            transparent 4px,
-            transparent 15px
+            ellipse at center,
+            transparent 15%,
+            rgba(0, 0, 0, 0.42) 100%
         );
 
-    opacity: 1;
+    opacity: 0.9;
 
     z-index: 0;
 }
 
 
 /* =========================================
-   CRT
+   CRT SCANLINES
+   Very subtle — should not dominate.
    ========================================= */
 
 body::after {
@@ -117,8 +95,8 @@ body::after {
     background:
         repeating-linear-gradient(
             to bottom,
-            rgba(255,255,255,0.018) 0px,
-            rgba(255,255,255,0.018) 1px,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0.018) 1px,
             transparent 1px,
             transparent 5px
         );
@@ -130,7 +108,7 @@ body::after {
 
 
 /* =========================================
-   MAIN
+   MAIN CONTENT
    ========================================= */
 
 .container {
@@ -155,11 +133,14 @@ body::after {
 
     height: auto;
 
-    margin-bottom: 30px;
+    display: block;
+
+    margin: 0 auto 30px;
 
     filter:
         grayscale(100%)
-        contrast(120%);
+        contrast(120%)
+        brightness(105%);
 
     animation: flicker 11s infinite;
 }
@@ -181,7 +162,7 @@ h1 {
     line-height: 1.1;
 
     text-shadow:
-        0 1px 0 rgba(255,255,255,0.08);
+        0 1px 0 rgba(255, 255, 255, 0.08);
 
     animation: flicker 13s infinite;
 }
@@ -196,7 +177,7 @@ h1 {
 
     height: 1px;
 
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
 
     margin: 28px auto 25px;
 }
@@ -210,6 +191,7 @@ nav {
     display: flex;
 
     justify-content: center;
+    align-items: center;
 
     gap: 38px;
 }
@@ -221,13 +203,18 @@ nav a {
 
     font-size: 13px;
 
+    font-weight: 500;
+
     letter-spacing: 3px;
 
     transition:
-        opacity 0.2s ease;
+        opacity 0.2s ease,
+        color 0.2s ease;
 }
 
 nav a:hover {
+    color: #ffffff;
+
     opacity: 0.45;
 }
 
@@ -239,7 +226,7 @@ nav a:hover {
 .motto {
     margin-top: 55px;
 
-    color: #888888;
+    color: #999999;
 
     font-size: 10px;
 
@@ -252,7 +239,7 @@ nav a:hover {
 
 
 /* =========================================
-   SUBTLE ANALOG FLICKER
+   SUBTLE CRT FLICKER
    ========================================= */
 
 @keyframes flicker {
