@@ -284,3 +284,163 @@ nav a:hover {
         letter-spacing: 3px;
     }
 }
+
+
+/* =========================================
+   MANIFEST — NEW LAYOUT
+   ========================================= */
+
+.manifest-container {
+    width: 100%;
+    max-width: 820px;
+
+    padding: 45px 35px 80px;
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   SMALL LOGO AT TOP
+   ========================================= */
+
+.manifest-logo {
+    width: 105px;
+
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 55px;
+
+    filter:
+        grayscale(100%)
+        contrast(125%)
+        brightness(115%);
+}
+
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.back {
+    position: fixed;
+
+    top: 28px;
+    left: 28px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    z-index: 20;
+
+    transition: opacity 0.2s ease;
+}
+
+.back:hover {
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   MANIFEST TITLE
+   ========================================= */
+
+.manifest-container h1 {
+    color: #ffffff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.manifest-container .divider {
+    width: 120px;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    margin: 0 0 45px;
+}
+
+
+/* =========================================
+   MANIFEST TEXT
+   ========================================= */
+
+.manifest-text {
+    max-width: 700px;
+
+    color: #eeeeee;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+}
+
+.manifest-text p {
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .manifest-container {
+        padding: 35px 25px 60px;
+    }
+
+    .manifest-logo {
+        width: 80px;
+
+        margin-bottom: 45px;
+    }
+
+    .back {
+        top: 18px;
+        left: 18px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .manifest-container h1 {
+        font-size: 28px;
+
+        letter-spacing: 5px;
+    }
+
+    .manifest-text {
+        font-size: 14px;
+
+        line-height: 1.85;
+    }
+}
