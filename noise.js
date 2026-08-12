@@ -19,21 +19,27 @@ function generateNoise() {
 
     for (let i = 0; i < data.length; i += 4) {
 
-        /*
-         * Mostly black.
-         * Occasionally dark gray.
-         */
-
         const random = Math.random();
 
         let value;
 
+        /*
+         * Mostly almost-black.
+         * Some darker gray pixels.
+         * Occasional stronger static.
+         */
+
         if (random > 0.985) {
-            value = Math.floor(Math.random() * 35) + 10;
+
+            value = Math.floor(Math.random() * 55) + 20;
+
         } else if (random > 0.90) {
-            value = Math.floor(Math.random() * 18) + 5;
+
+            value = Math.floor(Math.random() * 30) + 8;
+
         } else {
-            value = Math.floor(Math.random() * 7);
+
+            value = Math.floor(Math.random() * 12);
         }
 
         data[i] = value;
