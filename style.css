@@ -664,3 +664,172 @@ nav a:hover {
         font-size: 13px;
     }
 }
+
+/* =========================================
+   MEDIA PAGE
+   ========================================= */
+
+.media-container {
+    width: 100%;
+
+    max-width: 820px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding: 55px 35px 90px;
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+}
+
+
+/* LOGO */
+
+.media-logo {
+    width: 130px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 50px;
+
+    filter:
+        grayscale(100%)
+        contrast(125%)
+        brightness(115%);
+}
+
+
+/* TITLE */
+
+.media-container h1 {
+    color: #ffffff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+/* INTRO */
+
+.media-intro {
+    margin-top: 45px;
+
+    text-align: center;
+}
+
+.media-intro > p {
+    color: #ffffff;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 28px;
+}
+
+
+/* YOUTUBE LINK */
+
+.youtube-link {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 280px;
+
+    padding: 28px 45px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.youtube-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    border-color: #ffffff;
+}
+
+
+/* SMALL LABEL */
+
+.youtube-label {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.6;
+}
+
+
+/* CHANNEL NAME */
+
+.youtube-name {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .media-container {
+        padding: 60px 20px 70px;
+    }
+
+    .media-logo {
+        width: 100px;
+
+        margin-bottom: 40px;
+    }
+
+    .media-container h1 {
+        font-size: 28px;
+
+        letter-spacing: 5px;
+    }
+
+    .youtube-link {
+        min-width: 0;
+
+        width: 100%;
+
+        padding: 25px 20px;
+    }
+
+    .youtube-name {
+        font-size: 14px;
+
+        letter-spacing: 3px;
+    }
+}
