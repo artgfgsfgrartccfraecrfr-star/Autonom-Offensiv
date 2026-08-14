@@ -1,6 +1,5 @@
 /* =========================================
    AUTONOM OFFENSIV
-   Main stylesheet
    ========================================= */
 
 * {
@@ -18,19 +17,10 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    background:
-        radial-gradient(
-            ellipse at center,
-            #151515 0%,
-            #0b0b0b 48%,
-            #030303 100%
-        );
-
+    background: #030303;
     color: #ffffff;
 
     font-family: Arial, Helvetica, sans-serif;
-
-    text-align: center;
 
     position: relative;
 
@@ -40,7 +30,28 @@ body {
 
 
 /* =========================================
-   ATMOSPHERE
+   TV NOISE
+   ========================================= */
+
+#noise {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: 0.10;
+
+    z-index: 0;
+
+    image-rendering: pixelated;
+}
+
+
+/* =========================================
+   DARK VIGNETTE
    ========================================= */
 
 body::before {
@@ -53,77 +64,17 @@ body::before {
 
     background:
         radial-gradient(
-            circle at 20% 30%,
-            rgba(255, 255, 255, 0.025),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.02),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            transparent 30%,
-            rgba(0, 0, 0, 0.55) 100%
+            ellipse at center,
+            transparent 25%,
+            rgba(0, 0, 0, 0.58) 100%
         );
 
-    z-index: 0;
+    z-index: 2;
 }
 
 
 /* =========================================
    CRT SCANLINES
-   ========================================= */
-
-body::after {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.018) 0px,
-            rgba(255, 255, 255, 0.018) 1px,
-            transparent 1px,
-            transparent 4px
-        );
-
-    opacity: 0.35;
-
-    mix-blend-mode: screen;
-
-    z-index: 20;
-}
-
-
-/* =========================================
-   MOVING TV NOISE
-   ========================================= */
-
-#noise {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-
-    opacity: 0.19;
-
-    z-index: 1;
-
-    image-rendering: pixelated;
-}
-
-
-/* =========================================
-   CRT OVERLAY
    ========================================= */
 
 .crt {
@@ -132,15 +83,23 @@ body::after {
 
     pointer-events: none;
 
-    z-index: 19;
+    z-index: 10;
 
-    box-shadow:
-        inset 0 0 100px rgba(0, 0, 0, 0.35);
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+    opacity: 0.35;
 }
 
 
 /* =========================================
-   MAIN PAGE
+   HOMEPAGE
    ========================================= */
 
 .container {
@@ -159,55 +118,60 @@ body::after {
     justify-content: center;
     align-items: center;
 
+    text-align: center;
+
     position: relative;
 
     z-index: 5;
 }
 
 
-/* =========================================
-   MAIN LOGO
-   ========================================= */
+/* LOGO */
 
 .logo {
-    width: 180px;
+    width: 200px;
     max-width: 60vw;
+
     height: auto;
 
-    margin-bottom: 35px;
+    display: block;
+
+    margin: 0 auto 30px;
 
     filter:
         grayscale(100%)
-        contrast(110%);
-
-    animation: subtleFlicker 7s infinite;
+        contrast(120%)
+        brightness(110%);
 }
 
 
-/* =========================================
-   MAIN TITLE
-   ========================================= */
+/* TITLE */
 
-h1 {
+.container h1 {
     color: #ffffff;
 
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 700;
 
     letter-spacing: 8px;
 
-    margin-bottom: 35px;
-
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.06);
-
-    animation: subtleFlicker 9s infinite;
+    line-height: 1.1;
 }
 
 
-/* =========================================
-   NAVIGATION
-   ========================================= */
+/* DIVIDER */
+
+.divider {
+    width: 110px;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    margin: 28px auto 25px;
+}
+
+
+/* NAVIGATION */
 
 nav {
     display: flex;
@@ -215,7 +179,7 @@ nav {
     justify-content: center;
     align-items: center;
 
-    gap: 40px;
+    gap: 38px;
 }
 
 nav a {
@@ -223,30 +187,23 @@ nav a {
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
 
     letter-spacing: 3px;
 
-    position: relative;
-
-    transition:
-        opacity 0.2s ease,
-        letter-spacing 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 nav a:hover {
-    opacity: 0.55;
-
-    letter-spacing: 4px;
+    opacity: 0.5;
 }
 
 
-/* =========================================
-   MOTTO
-   ========================================= */
+/* MOTTO */
 
-.signal {
-    margin-top: 60px;
+.motto {
+    margin-top: 55px;
 
     color: #ffffff;
 
@@ -254,7 +211,9 @@ nav a:hover {
 
     letter-spacing: 4px;
 
-    opacity: 0.65;
+    text-transform: uppercase;
+
+    opacity: 0.72;
 }
 
 
@@ -265,7 +224,7 @@ nav a:hover {
 .back {
     position: fixed;
 
-    top: 25px;
+    top: 24px;
     right: 28px;
 
     z-index: 30;
@@ -275,36 +234,17 @@ nav a:hover {
     text-decoration: none;
 
     font-size: 10px;
-
     font-weight: 600;
 
     letter-spacing: 2px;
 
-    opacity: 0.75;
+    opacity: 0.8;
 
-    transition:
-        opacity 0.2s ease,
-        letter-spacing 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .back:hover {
     opacity: 1;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================
-   DIVIDER
-   ========================================= */
-
-.divider {
-    width: 102px;
-    height: 1px;
-
-    margin: 0 auto;
-
-    background: rgba(255, 255, 255, 0.55);
 }
 
 
@@ -331,6 +271,7 @@ nav a:hover {
 
 .manifest-logo {
     width: 130px;
+
     height: auto;
 
     display: block;
@@ -347,10 +288,38 @@ nav a:hover {
     color: #ffffff;
 
     font-size: 38px;
+    font-weight: 700;
 
     letter-spacing: 8px;
 
+    line-height: 1.1;
+
     margin-bottom: 25px;
+}
+
+.manifest-container .divider {
+    margin: 0 auto 45px;
+}
+
+.manifest-text {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+
+    text-align: left;
+}
+
+.manifest-text p {
+    margin-bottom: 35px;
 }
 
 
@@ -377,6 +346,7 @@ nav a:hover {
 
 .media-logo {
     width: 130px;
+
     height: auto;
 
     display: block;
@@ -393,16 +363,12 @@ nav a:hover {
     color: #ffffff;
 
     font-size: 38px;
+    font-weight: 700;
 
     letter-spacing: 8px;
 
     margin-bottom: 25px;
 }
-
-
-/* =========================================
-   MEDIA INTRO
-   ========================================= */
 
 .media-intro {
     margin-top: 45px;
@@ -421,9 +387,7 @@ nav a:hover {
 }
 
 
-/* =========================================
-   YOUTUBE
-   ========================================= */
+/* YOUTUBE */
 
 .youtube-link {
     display: inline-flex;
@@ -468,21 +432,18 @@ nav a:hover {
 
 .youtube-name {
     font-size: 16px;
-
     font-weight: 600;
 
     letter-spacing: 4px;
 }
 
 
-/* =========================================
-   MEDIA IMAGE / POSTER
-   ========================================= */
+/* POSTER */
 
 .media-image {
     width: 100%;
 
-    max-width: 300px;
+    max-width: 280px;
 
     margin: 55px auto 0;
 
@@ -493,7 +454,7 @@ nav a:hover {
     display: block;
 
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
 
     height: auto;
 
@@ -530,6 +491,7 @@ nav a:hover {
 
 .contact-logo {
     width: 130px;
+
     height: auto;
 
     display: block;
@@ -546,6 +508,7 @@ nav a:hover {
     color: #ffffff;
 
     font-size: 38px;
+    font-weight: 700;
 
     letter-spacing: 8px;
 
@@ -612,7 +575,6 @@ nav a:hover {
 
 .contact-platform {
     font-size: 14px;
-
     font-weight: 600;
 
     letter-spacing: 4px;
@@ -628,91 +590,114 @@ nav a:hover {
 
 
 /* =========================================
-   SUBTLE FLICKER
-   ========================================= */
-
-@keyframes subtleFlicker {
-
-    0%,
-    96%,
-    100% {
-        opacity: 1;
-    }
-
-    97% {
-        opacity: 0.96;
-    }
-
-    98% {
-        opacity: 0.88;
-    }
-
-    99% {
-        opacity: 0.98;
-    }
-}
-
-
-/* =========================================
    MOBILE
    ========================================= */
 
 @media (max-width: 600px) {
+
+    /* TV NOISE */
+
+    #noise {
+        opacity: 0.18;
+    }
+
+
+    /* HOMEPAGE */
 
     .container {
         padding: 35px 20px;
     }
 
     .logo {
-        width: 150px;
+        width: 145px;
     }
 
-    h1 {
+    .container h1 {
+        font-size: 27px;
+
+        letter-spacing: 5px;
+    }
+
+    .divider {
+        width: 80px;
+
+        margin-top: 23px;
+        margin-bottom: 23px;
+    }
+
+    nav {
+        gap: 20px;
+
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .motto {
+        margin-top: 45px;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* BACK */
+
+    .back {
+        top: 18px;
+        right: 18px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* MANIFEST */
+
+    .manifest-container {
+        padding: 60px 25px 80px;
+    }
+
+    .manifest-logo {
+        width: 105px;
+
+        margin-bottom: 40px;
+    }
+
+    .manifest-container h1 {
         font-size: 28px;
 
         letter-spacing: 5px;
     }
 
-    nav {
-        gap: 20px;
+    .manifest-text {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.85;
     }
 
-    nav a {
-        font-size: 12px;
 
-        letter-spacing: 2px;
-    }
+    /* MEDIA */
 
-    .signal {
-        margin-top: 50px;
-
-        font-size: 9px;
-    }
-
-    .back {
-        top: 20px;
-        right: 18px;
-
-        font-size: 9px;
-    }
-
-    .manifest-container,
-    .media-container,
-    .contact-container {
+    .media-container {
         padding: 60px 20px 80px;
     }
 
-    .manifest-logo,
-    .media-logo,
-    .contact-logo {
+    .media-logo {
         width: 100px;
 
         margin-bottom: 40px;
     }
 
-    .manifest-container h1,
-    .media-container h1,
-    .contact-container h1 {
+    .media-container h1 {
         font-size: 28px;
 
         letter-spacing: 5px;
@@ -742,6 +727,25 @@ nav a:hover {
         max-width: 180px;
     }
 
+
+    /* CONTACT */
+
+    .contact-container {
+        padding: 60px 20px 80px;
+    }
+
+    .contact-logo {
+        width: 100px;
+
+        margin-bottom: 40px;
+    }
+
+    .contact-container h1 {
+        font-size: 28px;
+
+        letter-spacing: 5px;
+    }
+
     .contact-content {
         margin-top: 40px;
     }
@@ -758,9 +762,5 @@ nav a:hover {
 
     .contact-action {
         font-size: 8px;
-    }
-
-    #noise {
-        opacity: 0.18;
     }
 }
