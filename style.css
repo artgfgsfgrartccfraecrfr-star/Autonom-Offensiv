@@ -114,7 +114,7 @@ body::after {
 
     pointer-events: none;
 
-    opacity: 0.10;
+    opacity: 0.19;
 
     z-index: 1;
 
@@ -482,7 +482,7 @@ nav a:hover {
 .media-image {
     width: 100%;
 
-    max-width: 210px;
+    max-width: 300px;
 
     margin: 55px auto 0;
 
@@ -493,7 +493,7 @@ nav a:hover {
     display: block;
 
     width: 100%;
-    max-width: 210px;
+    max-width: 300px;
 
     height: auto;
 
