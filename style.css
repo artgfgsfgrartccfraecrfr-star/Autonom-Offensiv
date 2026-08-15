@@ -42,7 +42,7 @@ body {
 
     pointer-events: none;
 
-    opacity: 0.35;
+    opacity: 0.30;
 
     z-index: 0;
 
@@ -598,7 +598,7 @@ nav a:hover {
     /* TV NOISE */
 
     #noise {
-        opacity: 0.18;
+        opacity: 0.25;
     }
 
 
